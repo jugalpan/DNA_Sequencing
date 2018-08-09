@@ -1,0 +1,337 @@
+<!--DOCTYPE html-->
+<!-- Research for Dr. Travis Glenn with ref. Ms. Swarnali Louha -->
+<!-- Developed by Jugal Panchal, Dep. of CS, UGA -->
+<!-- Rights reserved by Dr. Travis Glenn -->
+
+<html lang="en">
+<head>
+<title>Taggi Matrix</title>
+
+<style type="text/css">
+table {table-collapse:collapse; border-spacing:0}
+td {border:1px groove black; padding:2px}
+th {border:1px groove black; padding:2px}
+.ctr {text-align:center}
+</style>
+<script type="text/javascript">
+
+// Draw table from 'jsData' array of objects
+function drawTable(tbody) {
+    var tr, td;
+	var iTru = "iTru_" , under = "_";
+	var loc1 = document.getElementById("locus_co_1").value;
+	var loc2 = document.getElementById("locus_2").value;
+	var ss1 = document.getElementById("sample").value;
+	var ss2 = document.getElementById("seq_samp").value;
+	
+	if (loc1 == "") {
+		alert("Enter Locus 1")
+		return false;
+	}
+	if (loc2 == "") {
+		alert("Enter Locus 2")
+		return false;
+	}
+	if (ss1 == "") {
+		alert("Enter sequence 1")
+		return false;
+	}
+	if (ss2 == "") {
+		alert("Enter sequence 2")
+		return false;
+	}
+
+
+//	var locus_const_1 = loc1.value;
+//	var locus_const_2 = document.getElementById("locus_co_2")[0].value;
+//	var seq_constant_1 = document.getElementById("seq_co_1")[0].value;
+//	var seq_constant_2 = document.getElementById("seq_co_2")[0].value;
+
+//	var locus_const_1 = "16S_341_F" , locus_const_2 = "16S_785_R";							// user enters this
+//	var seq_constant_1 = "CCTACGGGNGGCWGCAG" , seq_constant_2 = "GACTACHVGGGTATCTAATCC";	// user enters this
+	var fussion_1 = "iTru_R1_5'_fusion" , fussion_2 = "iTru_R2_5'_fusion";
+	var seq_fussion_1 = "ACACTCTTTCCCTACACGACGCTCTTCCGATCT" , seq_fussion_2 = "GTGACTGGAGTTCAGACGTGTGCTCTTCCGATCT";
+	var seq_a1 = "GGT", seq_a2 = "AC", seq_b = "cAACAC", seq_c = "atCGGTT", seq_d = "tcgGTCAA", seq_e = "AAGCG", seq_f = "gCCACA", seq_g = "ctGGATG", seq_h = "tgaTTGAC";
+	var seq_1 = "AGGAA", seq_2 = "gAGTGG", seq_3 = "ccACGTC", seq_4 = "ttcTCAGC", seq_5 = "CTAGG", seq_6 = "tGCTTA";
+	var seq_7 = "gcGAAGT", seq_8 = "aatCCTAT", seq_9 = "ATCTG", seq_10 = "gAGACT", seq_11 = "cgATTCC", seq_12 = "tctCAATC";
+	var lab_1 = "1", lab_2 = "2", lab_3 = "3", lab_4 = "4", lab_5 = "5", lab_6 = "6", lab_7 = "7", lab_8 = "8", lab_9 = "9", lab_10 = "10";
+	var lab_11 = "11", lab_12 = "12", lab_a = "A", lab_b = "B", lab_c = "C", lab_d = "D", lab_e = "E", lab_f = "F", lab_g = "G", lab_h = "H";
+	
+    tbody = document.getElementById(tbody);
+
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = "Primer Name ";
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = "Sequence Generated ";
+
+
+	//median    
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = "No Tags";
+	
+//	tr = tbody.insertRow(tbody.rows.length);
+//	td = tr.insertCell(tr.cells.length);
+//	td.setAttribute("align", "center");
+//	td.innerHTML = loc1;
+
+
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+ss1;
+
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+ss2;
+
+	tr = tbody.insertRow(tbody.rows.length);
+
+	//median    Make it bold and remove lines
+		
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = "iTru Fusion Primers with Internal Tags";
+	
+	//median    
+//	tr = tbody.insertRow(tbody.rows.length);
+//	td = tr.insertCell(tr.cells.length);
+//	td.setAttribute("align", "center");
+//	td.innerHTML = "";
+	
+	
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = "Forward Primers";
+	
+// 1	
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_a+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_a1.fontcolor("green")+seq_a2.fontcolor("red")+ss1;
+// 2		
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_b+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_b.bold()+ss1;
+// 3		
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_c+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_c.bold()+ss1;
+// 4			
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_d+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_d.bold()+ss1;
+// 5			
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_e+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_e.bold()+ss1;
+// 6			
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_f+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_f.bold()+ss1;
+// 7			
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_g+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_g.bold()+ss1;
+// 8
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_h+under+loc1;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_1+seq_h.bold()+ss1;
+	
+	//median    
+//	tr = tbody.insertRow(tbody.rows.length);
+//	td = tr.insertCell(tr.cells.length);
+//	td.setAttribute("align", "center");
+//	td.innerHTML = "";
+
+	tr = tbody.insertRow(tbody.rows.length);
+
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = "Reverse Primers";
+//1    
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_1+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_1.bold()+ss2;
+//2
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_2+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_2.bold()+ss2;
+//3
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_3+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_3.bold()+ss2;
+//4
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_4+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_4.bold()+ss2;
+//5
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_5+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_5.bold()+ss2;
+//6
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_6+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_6.bold()+ss2;
+//7
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_7+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_7.bold()+ss2;
+//8
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_8+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_8.bold()+ss2;
+//9
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_9+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_9.bold()+ss2;
+//10
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_10+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_10.bold()+ss2;
+//11
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_11+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_11.bold()+ss2;
+//12
+	tr = tbody.insertRow(tbody.rows.length);
+    td = tr.insertCell(tr.cells.length);
+    td.setAttribute("align", "center");
+    td.innerHTML = iTru+lab_12+under+loc2;
+    td = tr.insertCell(tr.cells.length);
+    td.innerHTML = seq_fussion_2+seq_12.bold()+ss2;
+
+
+	document.getElementById("myBtn").disabled = true;
+	document.getElementById("btnExport").disabled = false;
+
+//	<thead>
+//		<tr>
+//			<th>Primer Name</th>
+//			<th>Sequence Generated</th>
+//		</tr>
+//		</thead>	
+
+}
+</script>
+
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+    $(document).ready(function() {
+  $("#btnExport").click(function(e) {
+    e.preventDefault();
+
+    //getting data from our table
+    var data_type = 'data:application/vnd.ms-excel';
+    var table_div = document.getElementById('table_wrapper');
+    var table_html = table_div.outerHTML.replace(/ /g, '%20');
+
+    var a = document.createElement('a');
+    a.href = data_type + ', ' + table_html;
+    a.download = 'sample_Taggi' + '.xls';
+    a.click();
+	});
+  });
+    </script>
+
+
+<style>
+body {
+	background-color: #e6fffa;
+	text-align:center;
+}
+</style>
+
+
+</head>
+<body>
+	<h1><center>Taggi Matrix</center></h1>
+	<hr /> 
+	<br>
+		Locus Specific Primer 1 Name: <input type="text" id="locus_co_1">
+		Sequence 1: <input type="text" id="sample"> <br> <br>
+		Locus Specific Primer 2 Name: <input type="text" id="locus_2">
+		Sequence 2: <input type="text" id="seq_samp">
+	<br> <br>
+	<button id="myBtn" onclick="drawTable('matchData')" >Click Me!</button>
+	<button id="refresh" onClick="window.location.reload()">Clear All Textbox</button>
+	<button id="btnExport" disabled>"Download as Excel file"</button>
+
+	<br> <br>
+	<div id="table_wrapper">
+	<table style="width:70%" border="1" cellspacing="0" bordercolor="#222" id="cupFinals" align="center">
+		<tbody id="matchData"></tbody>
+	</table>
+	</div>
+	
+</body>
+</html>
+          
